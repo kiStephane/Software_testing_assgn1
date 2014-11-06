@@ -20,7 +20,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testBasePriceShouldBeSettable]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
