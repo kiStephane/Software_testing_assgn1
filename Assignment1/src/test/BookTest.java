@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import src.Book;
 
 public class BookTest {
-
+	public Book book;
 	@Before
 	public void setUp() throws Exception {
+		book= new Book();
 	}
 
 	@Test
@@ -27,8 +29,9 @@ public class BookTest {
 	}
 
 	@Test
-	public void testSetBasePrice() {
-		fail("Not yet implemented");
+	public void testBasePriceShouldBeSettable() {
+		book.setBasePrice(50.49);
+		assertEquals(50.49, book.getBasePrice(), 0.01);
 	}
 
 	@Test
