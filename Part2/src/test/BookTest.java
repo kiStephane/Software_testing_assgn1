@@ -34,11 +34,6 @@ public class BookTest {
 		}
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void testBasePriceShouldNotBeSetToZero() {
-		book.setBasePrice(0);
-	}
-	
 	@Test
 	public void testVATshouldBeSettable() {
 		double expected = 0.1;
@@ -150,6 +145,37 @@ public class BookTest {
 	public void testOnCreateDiscountSetToZeroIfUserEnterNegativeValue() {
 		this.book = new Book(10,-10,10,false);
 		assertEquals(0.0, this.book.getDiscount(), 0);
+	}
+	
+	//===================================
+	
+	@Test
+	public void testDefaultOnSaleSatusIsFalse() {
+		assertFalse(this.book.getOnSaleStatus());
+	}
+	
+	@Test
+	public void testOnSaleStatusIsSettable() {
+		assertTrue(this.book.setOnSaleStatus(true).getOnSaleStatus());
+	}
+	
+	@Test
+	public void testSalePriceIsSixtyPercentOfOriginalPrice() {
+		this.book.setBasePrice(10);
+		this.book.setVat(10);
+		double expected = 0.40*11;
+		assertEquals(expected,this.book.setOnSaleStatus(true).getSalePrice(),0);
+	}
+	
+	@Test(expected= IllegalArgumentException.class)
+	public void testBestSellerCannotBeOnSale() {
+		this.book.setBestSeller();
+		this.book.setOnSaleStatus(true);	
+	}
+	
+	@Test(expected= IllegalStateException.class)
+	public void testAnOnSaleBookCannotBeAbestSeller() {
+		this.book.setOnSaleStatus(true).setBestSeller();
 	}
 	
 	

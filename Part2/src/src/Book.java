@@ -1,13 +1,14 @@
 package src;
 public class Book {
 	
-	public static final double DEFAULT_BASE_PRICE = 0.01;
-	
+	private static final double SALE = 60; 
 	private double basePrice = 0;
 	private double vat = 0;
 	private double discount = 0;
 	private double sellPrice;
 	private boolean bestseller = false;
+	private boolean onSaleStatus = false;
+	
 	
 
 	public Book() {
@@ -15,6 +16,7 @@ public class Book {
 		this.vat = 0;
 		this.discount = 0;
 		this.bestseller = false;
+		this.onSaleStatus = false;
 	}
 
 	public Book(double basePrice, double discount, double vat, boolean bestseller) {
@@ -47,8 +49,6 @@ public class Book {
 		if(basePrice<0.0){
 			System.out.println("Base price should not be negative");
 			this.basePrice=0.0;
-		}else if (basePrice==0.0){
-			throw new IllegalArgumentException("Base price should not be zero");
 		}else{		
 			this.basePrice = basePrice;
 		}		
@@ -92,6 +92,9 @@ public class Book {
 	}
 	
 	public void setBestSeller(){
+		if (onSaleStatus){
+			throw new IllegalStateException("A best seller cannot be on sale");
+		}
 		this.bestseller = true;
 		setSellPrice();
 	}
@@ -113,6 +116,23 @@ public class Book {
 		{
 			System.out.println("The base price must be greater than zero"); 
 		}
+	}
+
+	public boolean getOnSaleStatus() {
+		return this.onSaleStatus;
+	}
+
+	public Book setOnSaleStatus(boolean status) {
+		if (bestseller){
+			throw new IllegalArgumentException("A best seller cannot be on sale");
+		}
+		this.onSaleStatus=status;
+		return this;	
+	}
+
+	public double getSalePrice() {
+		setSellPrice();
+		return ((100-SALE)*sellPrice)/100;
 	}
 
 }
