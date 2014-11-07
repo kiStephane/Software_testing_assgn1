@@ -1,8 +1,6 @@
 package src;
 public class Book {
 	
-	public static final double DEFAULT_BASE_PRICE = 0.01;
-	
 	private double basePrice = 0;
 	private double vat = 0;
 	private double discount = 0;
@@ -47,8 +45,6 @@ public class Book {
 		if(basePrice<0.0){
 			System.out.println("Base price should not be negative");
 			this.basePrice=0.0;
-		}else if (basePrice==0.0){
-			throw new IllegalArgumentException("Base price should not be zero");
 		}else{		
 			this.basePrice = basePrice;
 		}		

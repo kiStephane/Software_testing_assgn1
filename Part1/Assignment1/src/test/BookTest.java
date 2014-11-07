@@ -3,7 +3,9 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+
 import src.Book;
 
 public class BookTest {
@@ -16,28 +18,36 @@ public class BookTest {
 	@Test
 	public void testBasePriceShouldBeSettable() {
 		book.setBasePrice(50.49);
-		assertEquals(50.49, book.getBasePrice(), 0.01);
+		assertEquals(50.49, book.getBasePrice(), 0);
 	}
-	
+	//====================
 	@Test
-	public void testBasePriceShouldBePositive() {
+	@Ignore
+	public void testBasePriceShouldBeGreaterThanZero() {
 		book.setBasePrice(-1);
 		assertEquals(0.0, this.book.getBasePrice(), 0);
 	}
 	
 	@Test
+	@Ignore
 	public void testOnCreateBasePriceShouldBeGreaterThanZero() {
-		try {
-			this.book= new Book(-1.0, 0.0, 0.0, false);
-		} catch (IllegalArgumentException e) {
-			assertEquals("Base price should be greater than 0", e.getMessage());
-		}
+		this.book= new Book(-1.0, 0.0, 0.0, false);
+		assertEquals(0.0, this.book.getBasePrice(), 0);
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
-	public void testBasePriceShouldNotBeSetToZero() {
-		book.setBasePrice(0);
+	@Test
+	public void testBasePriceShouldBeSetToZeroIfUserSetItNegative() {
+		this.book.setBasePrice(-1.0);
+		assertEquals(0.0, this.book.getBasePrice(), 0);
 	}
+	
+	@Test
+	public void testOnCreateBasePriceShouldBeSetToZeroIfNegative() {
+		this.book = new Book(-10,10,10,false);
+		assertEquals(0.0, this.book.getBasePrice(), 0);
+	}
+	
+	//=========================
 	
 	@Test
 	public void testVATshouldBeSettable() {
@@ -46,12 +56,7 @@ public class BookTest {
 		assertEquals(expected, this.book.getVat(), 0.0);
 	}
 	
-	@Test
-	public void testVATshouldBeGreaterOrEqualToZero() {
-		this.book.setVat(-0.1);
-		assertEquals(0, this.book.getVat(), 0);
-		
-	}
+
 	
 	@Test
 	public void testDiscountShouldBeSettable() {
@@ -61,6 +66,7 @@ public class BookTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testDiscountShouldBeGreaterOrEqualToZero() {
 		this.book.setDiscount(-1);
 		assertEquals(0, this.book.getDiscount(), 0);
@@ -116,16 +122,13 @@ public class BookTest {
 		assertTrue(this.book.getBestSeller());
 	}
 	
-	@Test
-	public void testBasePriceShouldBeSetToZeroIfUserSetItNegative() {
-		this.book.setBasePrice(-1.0);
-		assertEquals(0.0, this.book.getBasePrice(), 0);
-	}
+
 	
+	@Ignore
 	@Test
-	public void testOnCreateBasePriceShouldBeSetToZeroIfNegative() {
-		this.book = new Book(-10,10,10,false);
-		assertEquals(0.0, this.book.getBasePrice(), 0);
+	public void testVATshouldBeGreaterOrEqualToZero() {
+		this.book.setVat(-0.1);
+		assertEquals(0, this.book.getVat(), 0);
 	}
 	
 	@Test
@@ -152,8 +155,4 @@ public class BookTest {
 		assertEquals(0.0, this.book.getDiscount(), 0);
 	}
 	
-	
-
-
-
 }
