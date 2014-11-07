@@ -1,30 +1,42 @@
 package src;
 public class Book {
+	
+	public static final double DEFAULT_BASE_PRICE = 0.01;
+	
 	private double basePrice = 0;
 	private double vat = 0;
 	private double discount = 0;
 	private double sellPrice;
 	private boolean bestseller = false;
+	
 
 	public Book() {
-		this.basePrice = 0;
+		this.basePrice = DEFAULT_BASE_PRICE;
 		this.vat = 0;
 		this.discount = 0;
 		this.bestseller = false;
 	}
 
 	public Book(double basePrice, double discount, double vat, boolean bestseller) {
+		if(basePrice<=0){
+			throw new IllegalArgumentException("Base price should be greater than 0");
+		}
 		this.basePrice = basePrice;
 		this.discount = discount;
 		this.vat = vat;
 		this.bestseller = bestseller;
+		setSellPrice();
 	}
+	
 
 	public double getBasePrice() {
 		return basePrice;
 	}
 
 	public void setBasePrice(double basePrice) {
+		if(basePrice<=0){
+			throw new IllegalArgumentException("Base price should be greater than 0");
+		}
 		this.basePrice = basePrice;
 		setSellPrice();
 	}
@@ -34,6 +46,9 @@ public class Book {
 	}
 
 	public void setVat(double vat) {
+		if (vat<0){
+			throw new IllegalArgumentException("VAT should be positive or equal to zero");
+		}
 		this.vat = vat;
 		setSellPrice();
 	}
@@ -46,7 +61,11 @@ public class Book {
 		if (discount > 50){
 			System.out.println("discount can not be larger than 50 %");
 			this.discount = 50;
-		} 
+		}
+		else if(discount<0){
+			System.out.println("discount can not be negative");
+			this.discount = 0;
+		}
 		else {
 			this.discount = discount;
 		}

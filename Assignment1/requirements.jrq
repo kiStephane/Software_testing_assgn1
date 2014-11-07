@@ -33,7 +33,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testBasePriceShouldBePositive,test.BookTest.testBasePriceShouldNotBeSetToZero,test.BookTest.testOnCreateBasePriceShouldBeGreaterThanZero]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -46,7 +46,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testVATshouldBeSettable]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -59,7 +59,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testVATshouldBeGreaterOrEqualToZero]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -72,7 +72,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testDiscountShouldBeSettable]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -85,7 +85,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testDiscountShouldBeGreaterOrEqualToZero]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -98,7 +98,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testDiscountShouldBeLessOrEqualThanFiftyPercent]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -111,7 +111,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testOnCreateSellPriceShouldBeCalculated,test.BookTest.testSystemShouldCalculateSellPriceAfterAnyVariableChange]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -125,7 +125,7 @@
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
 <test-case-methods><![CDATA[]]></test-case-methods>
-<dependencies><![CDATA[]]></dependencies>
+<dependencies><![CDATA[2]]></dependencies>
 </requirement>
 <requirement>
 <id><![CDATA[10]]></id>
