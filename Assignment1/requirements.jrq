@@ -137,7 +137,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testBestSellerRealDiscountIsFiftyPercentOfActualDiscount]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -150,7 +150,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testBestSellerAttributShouldBeSettable]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -163,7 +163,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testBasePriceShouldBePositive,test.BookTest.testBasePriceShouldBeSetToZeroIfUserSetItNegative,test.BookTest.testOnCreateBasePriceShouldBeGreaterThanZero]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -176,7 +176,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testOnCreateVATSetToZeroIfUserEnterNegativeValue,test.BookTest.testVATsetToZeroIfUserTryNegativeValue]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -189,7 +189,7 @@
 <must-have><![CDATA[No]]></must-have>
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
-<test-case-methods><![CDATA[]]></test-case-methods>
+<test-case-methods><![CDATA[test.BookTest.testDiscountsetToZeroIfUserTryNegativeValue,test.BookTest.testOnCreateDiscountSetToZeroIfUserEnterNegativeValue]]></test-case-methods>
 <dependencies><![CDATA[]]></dependencies>
 </requirement>
 <requirement>
@@ -203,6 +203,6 @@
 <description><![CDATA[]]></description>
 <notes><![CDATA[]]></notes>
 <test-case-methods><![CDATA[]]></test-case-methods>
-<dependencies><![CDATA[]]></dependencies>
+<dependencies><![CDATA[7]]></dependencies>
 </requirement>
 </requirements>

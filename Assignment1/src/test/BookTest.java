@@ -19,9 +19,10 @@ public class BookTest {
 		assertEquals(50.49, book.getBasePrice(), 0.01);
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testBasePriceShouldBePositive() {
 		book.setBasePrice(-1);
+		assertEquals(0.0, this.book.getBasePrice(), 0);
 	}
 	
 	@Test
@@ -45,9 +46,11 @@ public class BookTest {
 		assertEquals(expected, this.book.getVat(), 0.0);
 	}
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testVATshouldBeGreaterOrEqualToZero() {
 		this.book.setVat(-0.1);
+		assertEquals(0, this.book.getVat(), 0);
+		
 	}
 	
 	@Test
@@ -95,7 +98,59 @@ public class BookTest {
 		assertEquals(expected, this.book.getSellPrice(), 0);
 	}
 	
+	@Test
+	public void testBestSellerRealDiscountIsFiftyPercentOfActualDiscount() {
+		double expected= 6.0;
+		this.book = new Book(10,50,10,false);
+		assertEquals(expected, this.book.getSellPrice(), 0);
+		
+		this.book.setBestSeller();
+		expected=8.5;
+		assertEquals(expected, this.book.getSellPrice(), 0);
+	}
 	
+	@Test
+	public void testBestSellerAttributShouldBeSettable() {
+		assertFalse(this.book.getBestSeller());
+		this.book.setBestSeller();
+		assertTrue(this.book.getBestSeller());
+	}
+	
+	@Test
+	public void testBasePriceShouldBeSetToZeroIfUserSetItNegative() {
+		this.book.setBasePrice(-1.0);
+		assertEquals(0.0, this.book.getBasePrice(), 0);
+	}
+	
+	@Test
+	public void testOnCreateBasePriceShouldBeSetToZeroIfNegative() {
+		this.book = new Book(-10,10,10,false);
+		assertEquals(0.0, this.book.getBasePrice(), 0);
+	}
+	
+	@Test
+	public void testVATsetToZeroIfUserTryNegativeValue() {
+		this.book.setVat(-10);
+		assertEquals(0.0, this.book.getVat(), 0);
+	}
+	
+	@Test
+	public void testOnCreateVATSetToZeroIfUserEnterNegativeValue() {
+		this.book = new Book(10,10,-10,false);
+		assertEquals(0.0, this.book.getVat(), 0);
+	}
+	
+	@Test
+	public void testDiscountsetToZeroIfUserTryNegativeValue() {
+		this.book.setDiscount(-10);
+		assertEquals(0.0, this.book.getDiscount(), 0);
+	}
+	
+	@Test
+	public void testOnCreateDiscountSetToZeroIfUserEnterNegativeValue() {
+		this.book = new Book(10,-10,10,false);
+		assertEquals(0.0, this.book.getDiscount(), 0);
+	}
 	
 	
 

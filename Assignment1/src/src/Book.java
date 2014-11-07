@@ -11,19 +11,29 @@ public class Book {
 	
 
 	public Book() {
-		this.basePrice = DEFAULT_BASE_PRICE;
+		this.basePrice = 0;
 		this.vat = 0;
 		this.discount = 0;
 		this.bestseller = false;
 	}
 
 	public Book(double basePrice, double discount, double vat, boolean bestseller) {
-		if(basePrice<=0){
-			throw new IllegalArgumentException("Base price should be greater than 0");
+		if(basePrice<0){
+			this.basePrice=0.0;
+		}else{
+			this.basePrice = basePrice;
 		}
-		this.basePrice = basePrice;
-		this.discount = discount;
-		this.vat = vat;
+		if (discount<0){
+			this.discount=0;
+		}else{
+			this.discount = discount;
+		}		
+		if(vat<0){
+			this.vat=0;
+		}else{
+			this.vat = vat;
+		}
+		
 		this.bestseller = bestseller;
 		setSellPrice();
 	}
@@ -34,10 +44,14 @@ public class Book {
 	}
 
 	public void setBasePrice(double basePrice) {
-		if(basePrice<=0){
-			throw new IllegalArgumentException("Base price should be greater than 0");
-		}
-		this.basePrice = basePrice;
+		if(basePrice<0.0){
+			System.out.println("Base price should not be negative");
+			this.basePrice=0.0;
+		}else if (basePrice==0.0){
+			throw new IllegalArgumentException("Base price should not be zero");
+		}else{		
+			this.basePrice = basePrice;
+		}		
 		setSellPrice();
 	}
 
@@ -47,9 +61,10 @@ public class Book {
 
 	public void setVat(double vat) {
 		if (vat<0){
-			throw new IllegalArgumentException("VAT should be positive or equal to zero");
+			this.vat=0.0;
+		}else{
+			this.vat = vat;
 		}
-		this.vat = vat;
 		setSellPrice();
 	}
 
