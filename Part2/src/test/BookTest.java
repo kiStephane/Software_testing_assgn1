@@ -147,10 +147,12 @@ public class BookTest {
 		assertEquals(0.0, this.book.getDiscount(), 0);
 	}
 	
-	//===================================
+	//===============New tests================
 	
 	@Test
 	public void testDefaultOnSaleSatusIsFalse() {
+		assertFalse(this.book.getOnSaleStatus());
+		this.book= new Book(10, 10, 10, false);
 		assertFalse(this.book.getOnSaleStatus());
 	}
 	
