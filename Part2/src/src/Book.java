@@ -131,6 +131,9 @@ public class Book {
 	}
 
 	public double getSalePrice() {
+		if(!onSaleStatus){
+			throw new IllegalStateException("The book is not on sale");
+		}
 		setSellPrice();
 		return ((100-SALE)*sellPrice)/100;
 	}

@@ -180,6 +180,11 @@ public class BookTest {
 		this.book.setOnSaleStatus(true).setBestSeller();
 	}
 	
+	@Test(expected= IllegalStateException.class)
+	public void testSalePriceAvailableOnlyIfBookIsOnSale() {
+		this.book= new Book(10, 10, 10, false);
+		this.book.getSalePrice();
+	}
 	
 
 
