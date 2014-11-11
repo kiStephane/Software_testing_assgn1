@@ -165,7 +165,7 @@ public class BookTest {
 	public void testSalePriceIsSixtyPercentOfOriginalPrice() {
 		this.book.setBasePrice(10);
 		this.book.setVat(10);
-		double expected = 0.40*11;
+		double expected = 0.40*10;
 		assertEquals(expected,this.book.setOnSaleStatus(true).getSalePrice(),0);
 	}
 	

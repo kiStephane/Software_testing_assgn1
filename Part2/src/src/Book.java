@@ -135,7 +135,7 @@ public class Book {
 			throw new IllegalStateException("The book is not on sale");
 		}
 		setSellPrice();
-		return ((100-SALE)*sellPrice)/100;
+		return ((100-SALE)*basePrice)/100;
 	}
 
 }
